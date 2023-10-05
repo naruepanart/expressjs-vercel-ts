@@ -2,24 +2,14 @@ import request from 'supertest';
 
 import app from '../src/app';
 
-describe('GET /api/v1', () => {
+describe('GET /api', () => {
   it('responds with a json message', (done) => {
     request(app)
-      .get('/api/v1')
+      .get('/api')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, {
-        message: 'API - 👋🌎🌍🌏',
+        message: 'Router Working 🚀',
       }, done);
-  });
-});
-
-describe('GET /api/v1/emojis', () => {
-  it('responds with a json message', (done) => {
-    request(app)
-      .get('/api/v1/emojis')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(200, ['😀', '😳', '🙄'], done);
   });
 });
